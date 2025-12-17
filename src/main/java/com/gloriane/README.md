@@ -14,8 +14,7 @@ A simple Java-based online shop management system that demonstrates order proces
 
 ## Project Structure
 
-Copy
-markdown
+```text
 workshop-onlineshop-demo/
 └── src/main/java/com/gloriane/
 ├── Main.java # Application entry point
