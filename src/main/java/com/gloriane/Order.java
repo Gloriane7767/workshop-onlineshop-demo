@@ -52,6 +52,20 @@ public class Order {
         }
     }
 
+    /* Remove a single item from the order
+   Take the specific OrderItem that the customer wants to remove (the 'item' parameter)
+   Search through the products list to find that exact item
+   Remove it from the products list using ArrayList's built-in remove() method
+   This is like taking one product off your kitchen shelf and putting it back in the store
+   The item parameter is the specific product you want to remove
+   products is the class field (the shopping list that belongs to this Order object)
+*/
+
+    // Remove a single item from order
+    public void removeItem(OrderItem item) {
+        products.remove(item);
+    }
+
     // Get customer name will connect customer to order
     public String getCustomerName() {
         return customer.getName();

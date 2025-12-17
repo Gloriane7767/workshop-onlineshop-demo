@@ -24,7 +24,17 @@ public class Main {
         };
         
         // Add items to the order
+
         order.addItems(orderItems);
+
+        // ⬇️ ADD THESE LINES HERE (between line 26 and 29) ⬇️
+        System.out.println("\n--- BEFORE REMOVING ITEM ---");
+        order.displayOrderSummary();
+
+        order.removeItem(orderItems[1]);  // Remove "Pen"
+
+        System.out.println("\n--- AFTER REMOVING PEN ---");
+// ⬆️ END OF NEW CODE ⬆️
         
         // Display detailed order information
         order.displayOrderSummary();
