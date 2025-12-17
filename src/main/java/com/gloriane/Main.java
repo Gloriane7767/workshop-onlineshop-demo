@@ -9,25 +9,24 @@ public class Main {
         Product product = new Product("Example Product", 29.99);
         System.out.println(product.getProduct());
 
-        OrderItem orderItem1 = new OrderItem("Notebook", 99.50);
-        System.out.println(orderItem1.getOrderItem());
-        OrderItem orderItem2 = new OrderItem("Pen", 10.55);
-        System.out.println(orderItem2.getOrderItem());
-        OrderItem orderItem3= new OrderItem("backpack", 80.50);
-        System.out.println(orderItem3.getOrderItem());
-        OrderItem orderItem4 = new OrderItem("water bottle", 60.50);
-        System.out.println(orderItem4.getOrderItem());
-        OrderItem orderItem5 = new OrderItem("Calculator", 30.50);
-        System.out.println(orderItem5.getOrderItem());
-        OrderItem orderItem6 = new OrderItem("Headphone", 20.50);
-        System.out.println(orderItem6.getOrderItem());
-        OrderItem orderItem7 = new OrderItem("Charger", 45.50);
-        System.out.println(orderItem7.getOrderItem());
-        OrderItem orderItem8 = new OrderItem("Mouse", 36.50);
-        System.out.println(orderItem8.getOrderItem());
-        OrderItem orderItem9 = new OrderItem("USB cable", 80.50);
-        System.out.println(orderItem9.getOrderItem());
-        OrderItem orderItem10 = new OrderItem("Planner", 30.50);
-        System.out.println(orderItem10.getOrderItem());
+        OrderItem[] orderItems = {
+                new OrderItem("Notebook", 99.50),
+                new OrderItem("Pen", 10.55),
+                new OrderItem("backpack", 80.50),
+                new OrderItem("water bottle", 60.50),
+                new OrderItem("Calculator", 30.50),
+                new OrderItem("Headphone", 20.50),
+                new OrderItem("Charger", 45.50),
+                new OrderItem("Mouse", 36.50),
+                new OrderItem("USB cable", 80.50),
+                new OrderItem("Planner", 30.50)
+        };
+        double total = 0.0;
+        for (OrderItem item : orderItems) {
+            System.out.println(item.getOrderItem());
+            total += item.getPrice();
+        }
+
+        System.out.println("\nTotal Order Amount: $" + String.format("%.2f", total));
     }
 }
