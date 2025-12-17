@@ -3,11 +3,12 @@ package com.gloriane;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the Gloriane Application!");
-        Customer customer = new Customer("Example User", "test.test@example.com");
-        System.out.println(customer.getCustomer());
-
-        Product product = new Product("Example Product", 29.99);
-        System.out.println(product.getProduct());
+        
+        // Create customer
+        Customer customer = new Customer("Gloriane Dev", "test.test@example.com");
+        
+        // Create order for the customer
+        Order order = new Order(1, 0.0, customer);
 
         OrderItem[] orderItems = {
                 new OrderItem("Notebook", 99.50),
@@ -21,12 +22,11 @@ public class Main {
                 new OrderItem("USB cable", 80.50),
                 new OrderItem("Planner", 30.50)
         };
-        double total = 0.0;
-        for (OrderItem item : orderItems) {
-            System.out.println(item.getOrderItem());
-            total += item.getPrice();
-        }
-
-        System.out.println("\nTotal Order Amount: $" + String.format("%.2f", total));
+        
+        // Add items to the order
+        order.addItems(orderItems);
+        
+        // Display detailed order information
+        order.displayOrderSummary();
     }
 }
