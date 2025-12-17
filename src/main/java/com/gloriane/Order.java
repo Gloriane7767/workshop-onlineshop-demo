@@ -1,55 +1,44 @@
 package com.gloriane;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class Order {
-    private String orderId;
-    private ArrayList<OrderItem> products;
+    private int Id;
+    private double totalPrice;
+    private List<OrderItem> products = new ArrayList<>();
 
-    public Order(String orderId) {
-        this.orderId = orderId;
-        this.products = new ArrayList<>();
+    int getId() {
+        return Id;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public ArrayList<OrderItem> getProducts() {
-        return new ArrayList<>(products); // Return copy to protect encapsulation
+    public Order(int id, double totalPrice) {
+        this.Id = generateId();
     }
 
-    public void addProduct(String name, double price) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Product name cannot be null or empty");
-        }
-        if (price <= 0) {
-            throw new IllegalArgumentException("Product price must be positive");
-        }
-        products.add(new OrderItem(name, price));
+    private int generateId() {
+        return UUID.randomUUID().toString().substring(0, 8).hashCode();
     }
 
-    public void removeProduct(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Product name cannot be null or empty");
-        }
-
-        boolean removed = products.removeIf(orderItem -> orderItem.getName().equals(name));
-        if (!removed) {
-            throw new IllegalArgumentException("Product not found in order");
-        }
+    public int orderId() {
+        return Id;
     }
 
-    public double calculateTotal() {
-        double total = 0;
-        for (OrderItem orderItem : products) {
-            total += orderItem.getPrice();
+    public void setTotalPrice(double totalprice) {
+        if (totalprice <= 0) {
+            throw new IllegalArgumentException("Price must be positive");
         }
-        return total;
+        this.totalPrice = totalprice;
     }
 
     @Override
     public String toString() {
-        return "Order{orderId='" + orderId + "', products=" + products + ", total=" + calculateTotal() + "}";
+        return "Order: " + Id + " +  Products: " + products + ", Total price: $" + totalPrice;
     }
+
 }

@@ -1,11 +1,15 @@
 package com.gloriane;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Product {
     private int id;
     private String name;
     private double price;
+    private List<OrderItem> products = new ArrayList<>();
+
 
     public String getName() {
         return name;
