@@ -25,7 +25,7 @@ public class OrderManager {
     public double calculateAllOrdersTotal() {
         double total = 0;
         for (Order order : orders) {
-            total += order.getTotalPrice();
+            total += order.getTotalAmount();
         }
         return total;
     }

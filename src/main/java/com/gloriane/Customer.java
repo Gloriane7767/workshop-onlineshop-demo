@@ -48,8 +48,5 @@ public class Customer {
         return "Id: " + id + ", Customer: " + name + ", + Email: " + email;
     }
 
-    public String getCustomer() {
-            return toString();
-        }
-    }
+}
 

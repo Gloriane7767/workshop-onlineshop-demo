@@ -10,7 +10,6 @@ public class Product {
     private double price;
     private List<OrderItem> products = new ArrayList<>();
 
-
     public String getName() {
         return name;
     }
@@ -50,9 +49,5 @@ public class Product {
     @Override
     public String toString() {
         return "Id: " + id + ", Product: " + name + ", Price: $" + price;
-    }
-
-    public String getProduct() {
-        return toString();
     }
 }

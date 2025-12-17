@@ -12,14 +12,6 @@ public class Order {
     private Customer customer; // This field stores the connection
 
 
-    int getId() {
-        return Id;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
     public Order(int id, double totalPrice, Customer customer) {
         this.Id = generateId();
         this.totalPrice = totalPrice;
@@ -30,7 +22,7 @@ public class Order {
         return UUID.randomUUID().toString().substring(0, 8).hashCode();
     }
 
-    public int orderId() {
+    int getId() {
         return Id;
     }
 
@@ -46,19 +38,21 @@ public class Order {
         return "Order: " + Id + " +  Products: " + products + ", Total price: $" + totalPrice;
     }
 
-    // Add single item to order
-    public void addItem(OrderItem item) {
-        products.add(item);
-    }
+    /*Hey, give me an array (a collection) of OrderItems, and I'll call it items.Think of items as a shopping bag full of products
+    For each individual product (item) inside that shopping bag (items).... This is like reaching into the bag and pulling out one item at a time
+    ...add that single product to my permanent shopping list (products).
+    products is the class field (the list that belongs to this Order object)
+    item is the current product you're holding from the bag
+     */
 
     // Add multiple items at once
     public void addItems(OrderItem[] items) {
-        for (OrderItem item : items) {  // Loop through 'items' parameter, not 'products'
-            products.add(item);          // Add each item to the products list
+        for (OrderItem item : items) {  // It Loops through 'items' parameter, not 'products'
+            products.add(item);          //  and Add each item to the products list
         }
     }
 
-    // Get customer name (connects customer to order)
+    // Get customer name will connect customer to order
     public String getCustomerName() {
         return customer.getName();
     }
