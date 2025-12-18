@@ -8,6 +8,14 @@ public class Main {
         // Create order for the customer
         Order order = new Order(customer);
 
+        // Status is PENDING by default
+        order.confirmOrder();   // Status becomes CONFIRMED
+        order.processOrder();   // Status becomes PROCESSING
+        order.shipOrder();      // Status becomes SHIPPED
+        order.deliverOrder();   // Status becomes DELIVERED
+
+
+
         Product[] products = {
                 new Product("Notebook", 99.50, 1),
                 new Product("Pen", 10.55, 1),

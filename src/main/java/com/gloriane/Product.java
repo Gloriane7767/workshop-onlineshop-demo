@@ -1,5 +1,6 @@
 package com.gloriane;
 
+import java.util.Date;
 import java.util.UUID;
 
 public class Product {
@@ -7,6 +8,7 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
+
 
     public Product(String name, double price, int quantity) {
         this.id = generateId();
