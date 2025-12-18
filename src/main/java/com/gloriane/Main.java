@@ -2,39 +2,27 @@ package com.gloriane;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Gloriane Application!");
-        
         // Create customer
-        Customer customer = new Customer("Gloriane Dev", "test.test@example.com");
+        Customer customer = new Customer("Anna", "test.test@example.com");
         
         // Create order for the customer
-        Order order = new Order(1, 0.0, customer);
+        Order order = new Order(customer);
 
-        OrderItem[] orderItems = {
-                new OrderItem("Notebook", 99.50),
-                new OrderItem("Pen", 10.55),
-                new OrderItem("backpack", 80.50),
-                new OrderItem("water bottle", 60.50),
-                new OrderItem("Calculator", 30.50),
-                new OrderItem("Headphone", 20.50),
-                new OrderItem("Charger", 45.50),
-                new OrderItem("Mouse", 36.50),
-                new OrderItem("USB cable", 80.50),
-                new OrderItem("Planner", 30.50)
+        Product[] products = {
+                new Product("Notebook", 99.50, 1),
+                new Product("Pen", 10.55, 1),
+                new Product("backpack", 80.50, 1),
+                new Product("water bottle", 60.50, 1),
+                new Product("Calculator", 30.50, 1),
+                new Product("Headphone", 20.50, 1),
+                new Product("Charger", 45.50, 1),
+                new Product("Mouse", 36.50, 1),
+                new Product("USB cable", 80.50, 1),
+                new Product("Planner", 30.50, 1)
         };
         
-        // Add items to the order
-
-        order.addItems(orderItems);
-
-        // ⬇️ ADD THESE LINES HERE (between line 26 and 29) ⬇️
-        System.out.println("\n--- BEFORE REMOVING ITEM ---");
-        order.displayOrderSummary();
-
-        order.removeItem(orderItems[1]);  // Remove "Pen"
-
-        System.out.println("\n--- AFTER REMOVING PEN ---");
-// ⬆️ END OF NEW CODE ⬆️
+        // Add products to the order
+        order.addProducts(products);
         
         // Display detailed order information
         order.displayOrderSummary();
